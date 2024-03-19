@@ -65,24 +65,24 @@ set<string> permutate(const string& s)
     if(s.length() == 1)
         return {s};
     
-    set<string> result{};
+    set<string> perms{};
     // Take half of the length
     const auto limit = std::sqrt(s.length());
     for(int i = 1; i <= limit; ++i)
     {
-        // Generate all permutations of both substrings
-        const auto& perms1 = permutate(s.substr(0, i));
-        const auto& perms2 = permutate(s.substr(i));
+        // Generate all permutations of left and right substrings
+        const auto& lperms = permutate(s.substr(0, i));
+        const auto& rperms = permutate(s.substr(i));
 
         // Insert the first substring perms into the second substring perms, for each index of the word
-        for(const string& perm1 : perms1)
-            for(const string& perm2 : perms2)
-                for(int j = 0; j < perm2.size() + 1; ++j)
+        for(const string& lperm : lperms)
+            for(const string& rperm : rperms)
+                for(int j = 0; j < rperm.size() + 1; ++j)
                     // Using the constructor because insert works with the original string
-                    result.insert(string{perm2}.insert(j, perm1));
+                    perms.insert(string{rperm}.insert(j, lperm));
     }
 
-    return result;
+    return perms;
 }
 
 void printHelpPage()
