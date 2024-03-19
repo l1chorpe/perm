@@ -65,7 +65,9 @@ set<string> permutate(const string& s)
         return {s};
     
     set<string> result{};
-    for(int i = 1; i < s.length(); ++i)
+    // Take half of the length
+    const int limit = s.length() % 2 == 0 ? s.length() / 2 : s.length() / 2 + 1;
+    for(int i = 1; i <= limit; ++i)
     {
         // Generate all permutations of both substrings
         const auto& perms1 = permutate(s.substr(0, i));
