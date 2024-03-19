@@ -29,8 +29,8 @@ int main(int argc, char* argv[])
             return 0;
         }
 
-        auto perms = permutate(argv[1]);
-        auto count = perms.size();
+        const auto& perms = permutate(argv[1]);
+        const auto count = perms.size();
 
         // Grammar is important
         if(count == 1)
@@ -78,8 +78,8 @@ set<string> permutate(const string& s)
     for(int i = 0; i < s.length() - 1; ++i)
     {
         // Generate all permutations of both substrings
-        auto perms1 = permutate(s.substr(0, i + 1));
-        auto perms2 = permutate(s.substr(i + 1));
+        const auto& perms1 = permutate(s.substr(0, i + 1));
+        const auto& perms2 = permutate(s.substr(i + 1));
 
         // Insert the first substring perms into the second substring perms, for each index of the word
         for(const string& perm1 : perms1)
