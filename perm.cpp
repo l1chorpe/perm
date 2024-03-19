@@ -1,3 +1,4 @@
+#include <cmath>
 #include <cstring>
 #include <iostream>
 #include <set>
@@ -66,7 +67,7 @@ set<string> permutate(const string& s)
     
     set<string> result{};
     // Take half of the length
-    const int limit = s.length() % 2 == 0 ? s.length() / 2 : s.length() / 2 + 1;
+    const auto limit = std::sqrt(s.length());
     for(int i = 1; i <= limit; ++i)
     {
         // Generate all permutations of both substrings
