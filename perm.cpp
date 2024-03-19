@@ -29,16 +29,7 @@ int main(int argc, char* argv[])
             return 0;
         }
 
-        const auto& perms = permutate(argv[1]);
-        const auto count = perms.size();
-
-        // Grammar is important
-        if(count == 1)
-            cout << "There is 1 permutation.\n";
-        else
-            cout << "There are " << count << " permutations.\n";
-
-        for(const string& perm : perms)
+        for(const string& perm : permutate(argv[1]))
             cout << perm + '\n';
 
         return 0;
