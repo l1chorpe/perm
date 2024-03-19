@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 {
     if (argc == 2)
     {
-        if(strcmp(argv[1], "-h") || strcmp(argv[1], "--help"))
+        if(strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0)
         {
             printHelpPage();
             return 0;
@@ -45,8 +45,7 @@ int main(int argc, char* argv[])
     }
     else if(argc == 3)
     {
-        // The spaces aren't stripped from the arguments for some reason
-        if(!strcmp(argv[1], "-c ") || !strcmp(argv[1], "--count "))
+        if(strcmp(argv[1], "-c") != 0 && strcmp(argv[1], "--count") != 0)
         {
             printHelpPage();
             return 1;
