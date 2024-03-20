@@ -66,8 +66,8 @@ set<string> permutate(const string& s)
         return {s};
     
     set<string> perms{};
-    // Take half of the length
-    const auto limit = std::sqrt(s.length());
+    // Take log2 of the length because we're splitting everything in two
+    const auto limit = std::log2(s.length());
     for(int i = 1; i <= limit; ++i)
     {
         // Generate all permutations of left and right substrings
