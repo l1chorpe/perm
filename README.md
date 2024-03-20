@@ -33,10 +33,15 @@ What I eventually noticed, was that past half of the word, it only creates dupli
 thinking about it, and if the word is long enough, you could also ignore everything past a third of the word. And then past a fourth, and so on. The limit is
 the square root of the length. Which quite drastically improves the performance, especially for bigger words.
 
+And by thinking even further, and experimenting a bit, it so happens that dividing the strings allows us to do even better than square root, and go straight
+for log<sub>2</sub>. Well actually, it isn't that much more optimized. It actually performs basically identically to using a square root until the word has
+more than 15 characters. Which is when this algorithm starts reaching its limits, even for a very decent gaming computer (at least in 2024). Past that,
+however, it has much better performance, and the gap only increases the larger the word.
+
 
 ### What's the license?
 
-It's under the MIT license.
+It's under the Unlicense "license".
 
 
 ### Can I steal the code?
